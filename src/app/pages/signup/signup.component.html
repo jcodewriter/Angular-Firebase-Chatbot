@@ -1,0 +1,91 @@
+   <!-- Register Content -->
+   <div class="container-login">
+    <div class="row justify-content-center">
+      <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card shadow-sm my-5">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="login-form">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Sign Up</h1>
+                  </div>
+                  <form [formGroup]="signUpForm" (submit)="submit()" novalidate>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="firstname-input" placeholder="Firstname" formControlName="firstname">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="lastname-input" placeholder="Lastname" formControlName="lastname">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email-input" placeholder="Email Address  (e.g. example@gmail.com   )" formControlName="email">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="idNumber-input" placeholder="ID Number  (e.g. 7903XXXXXX086)" formControlName="idNumber">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="age-input" placeholder="Age  (e.g. 30)" formControlName="age">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Highest Qualification</label>
+                        <select class="form-control" formControlName="qualification" ngModel="Lower Than Matric">
+                          <option *ngFor="let e of education" [ngValue]="e">{{ e }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Employment Status</label>
+                        <select class="form-control" formControlName="employmentStatus" ngModel="Unemployed">
+                          <option *ngFor="let e of employment" [ngValue]="e">{{e}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="addressLine1-input" placeholder="Address Line 1" formControlName="addressLine1">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="addressLine2-input" placeholder="Address Line 2 (Optional)" formControlName="addressLine2">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="postalCode-input" placeholder="Postal Code" formControlName="postalCode">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="city-input" placeholder="City" formControlName="city">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="country-input" placeholder="Country" formControlName="country">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="votingStation-input" placeholder="Voting Station" formControlName="votingStation">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password-input" placeholder="Password" formControlName="password">
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                    </div>
+                  </form>
+                  <hr>
+                  <div class="text-center">
+                    <a class="font-weight-bold small" routerLink="/login">Already have an account?</a>
+                  </div>
+                  <div class="text-center">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Register Content -->
+

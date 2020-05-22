@@ -1,0 +1,63 @@
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- Sidebar -->
+
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+        <!-- TopBar -->
+        <app-navbar></app-navbar>
+        <!-- Topbar -->
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+            <div class="container" style="margin-top: 8%;">
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-sm-8 col-md-6" *ngIf="user else noPhoto">
+                        <img [src]="user?.photoUrl" alt="profile-pic" class="rounded-circle mx-auto d-block profile-pic" >
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-sm-8 col-md-6 text-center name">
+                        {{user?.firstname}} {{user?.lastname}}
+                    </div>
+                </div>
+            
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-sm-8 col-md-6 text-center quote">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">
+                                "{{user?.quote}}"
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+            
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-sm-8 col-md-6 text-center bio">
+                        {{user?.bio}}
+                    </div>
+                </div>
+            
+                <div class="row justify-content-center" *ngIf="user?.id === currentUser?.id">
+                    <div class="col-xs-12 col-sm-8 col-md-6 text-center edit-button">
+                        <button [routerLink]="'/profile/' + currentUser?.id + '/edit'" class="btn btn-primary">Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+            
+            <ng-template #noPhoto>
+                <div class="no-photo d-flex justify-content-center align-items-center">
+                    No Photo 
+                </div>
+            </ng-template>
+        </div>
+        <!---Container Fluid-->
+        </div>
+
+        <!-- Footer -->
+        <app-footer></app-footer>
+        <!-- Footer -->
+    </div>
+</div>
+

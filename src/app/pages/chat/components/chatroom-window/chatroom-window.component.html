@@ -1,0 +1,33 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+    </ol>
+  </div>
+
+  <div class="row mb-3" *ngIf="!chatroom else chatMessages">
+    <!--  -->
+    <div class="select-room h-100 w-100 d-flex justify-content-center align-items-center">
+      <div class="select-room-message">
+        <div class="row align-items-center">
+          <div class="col">
+            <div style="text-align: center;" class="h5 mb-0 font-weight-bold text-gray-800">
+                <a routerLink="list" style="text-decoration: none;">Select A Room</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+  <!--Row-->
+
+  <ng-template #chatMessages>
+    <app-chatroom-title-bar [title]="chatroom.name"></app-chatroom-title-bar>
+    <div class="message-wrapper h-100" #scrollContainer>
+        <ng-container *ngFor="let message of messages">
+            <app-chat-message [message]="message"></app-chat-message>
+        </ng-container>
+    </div>
+    <app-chat-input></app-chat-input>
+  </ng-template>

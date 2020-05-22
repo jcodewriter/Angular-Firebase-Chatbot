@@ -1,0 +1,22 @@
+@import './../../../../../variables.scss';
+
+.message-wrapper{
+    overflow-y: scroll;
+    max-height: 400px;
+}
+
+.select-room {
+    .select-room-message {
+        // width: 40%;
+        padding: 20px 20px 22px 20px;
+        border-radius: 0.25rem;
+        margin-bottom: 10%;
+        margin-top: 15%;
+        border: 1px solid $light-grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        box-shadow: 0 20px 10px $light-grey;
+    }
+}

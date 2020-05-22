@@ -1,0 +1,45 @@
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- Sidebar -->
+
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+        <!-- TopBar -->
+        <app-navbar></app-navbar>
+        <!-- Topbar -->
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Chatroom List</h1>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">List</li>
+                </ol>
+              </div>
+
+            <div class="col-xl-3 col-md-6 mb-4" style="margin-top: 10%; margin-left: auto; margin-right: auto;">
+                <div class="card h-100" *ngFor="let chatroom of chatroomService.chatrooms | async" style="margin-bottom: 10px;">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <div style=" text-align: center;" class="h5 mb-0 font-weight-bold text-gray-800">
+                            <a style="text-decoration: none;" [routerLink]="['/chat', chatroom.id]">{{ chatroom.name }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+
+        <!---Container Fluid-->
+        </div>
+
+        <!-- Footer -->
+        <app-footer></app-footer>
+        <!-- Footer -->
+    </div>
+</div>

@@ -1,0 +1,7 @@
+
+$chat-container: 768px;
+@media (max-width: $chat-container) {
+  app-sidebar {
+    width: 0 !important;
+  }
+}

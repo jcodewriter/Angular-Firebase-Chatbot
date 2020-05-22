@@ -1,0 +1,72 @@
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- Sidebar -->
+
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+        <!-- TopBar -->
+        <app-navbar></app-navbar>
+        <!-- Topbar -->
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-sm-8 col-md-6" *ngIf="currentUser else noPhoto">
+                        <img *ngIf="!image" [src]="currentUser.photoUrl" alt="profile-pic" class="rounded-circle mx-auto d-block profile-pic">
+                        <img *ngIf="image && image.length > 0" [src]="image" alt="profile-pic" class="rounded-circle mx-auto d-block profile-pic">
+                    </div>
+                </div>
+            
+                <div class="row justify-content-center" *ngIf="currentUser">
+                    <div class="col-xs-12 col-sm-8 col-md-6">
+                        <input type="file" (change)="uploadFile($event)">
+                    </div>
+                </div>
+                <div class="row justify-content-center" *ngIf="currentUser">
+                    <div class="col-xs-12 col-sm-8 col-md-6 justify-content-center d-flex">
+                        <input type="text" [(ngModel)]="currentUser.firstname">
+                    </div>
+                </div>
+                <div class="row justify-content-center" *ngIf="currentUser">
+                    <div class="col-xs-12 col-sm-8 col-md-6 justify-content-center d-flex">
+                        <input type="text" [(ngModel)]="currentUser.lastname">
+                    </div>
+                </div>
+                <div class="row justify-content-center" *ngIf="currentUser">
+                    <div class="col-xs-12 col-sm-8 col-md-6 justify-content-center d-flex">
+                        <input type="text" [(ngModel)]="currentUser.idNumber">
+                    </div>
+                </div>
+                <div class="row justify-content-center" *ngIf="currentUser">
+                    <div class="col-xs-12 col-sm-8 col-md-6 quote">
+                        <input type="text" [(ngModel)]="currentUser.quote">
+                    </div>
+                </div>
+                <div class="row justify-content-center" *ngIf="currentUser">
+                    <div class="col-xs-12 col-sm-8 col-md-6 text-center bio">
+                      <textarea rows="5" [(ngModel)]="currentUser.bio"></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-center" *ngIf="currentUser">
+                    <div class="col-xs-12 col-sm-8 col-md-6 text-center">
+                        <button class="btn btn-primary" (click)="save()">Save Profile</button>
+                    </div>
+                </div>
+            </div>
+            
+            <ng-template #noPhoto>
+                <div class="no-photo d-flex justify-content-center align-items-center">
+                    No Photo
+                </div>
+            </ng-template>
+        </div>
+        <!---Container Fluid-->
+        </div>
+
+        <!-- Footer -->
+        <app-footer></app-footer>
+        <!-- Footer -->
+    </div>
+</div>
